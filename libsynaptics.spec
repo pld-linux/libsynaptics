@@ -1,0 +1,84 @@
+Summary:	libsynaptics - a library for communication with Synaptics touchpad
+Summary(pl):	libsynaptics - biblioteka do komunikacji z touchpadami Synaptics
+Name:		libsynaptics
+Version:	0.14.4d
+Release:	1
+License:	LGPL
+Group:		Libraries
+Source0:	http://qsynaptics.sourceforge.net/%{name}-%{version}.tar.bz2
+# Source0-md5:	1df76861480200343d7de52237e54249
+URL:		http://qsynaptics.sourceforge.net/
+BuildRequires:	autoconf >= 2.54
+BuildRequires:	automake
+BuildRequires:	libtool
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+libsynaptics is a library for communication with Synaptics touchpads.
+
+%description -l pl
+libsynaptics jest bibliotek± umo¿liwiaj±c± komunikacjê z touchpadami
+Synaptics.
+
+%package devel
+Summary:	Header files for the libsynaptics library
+Summary(pl):	Pliki nag³ówkowe biblioteki libsynaptics
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description devel
+Header files for the libsynaptics library
+
+%description devel -l pl
+Pliki nag³ówkowe biblioteki libsynaptics
+
+%package static
+Summary:	Static libsynaptics library
+Summary(pl):	Statyczna biblioteka libsynaptics
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static libsynaptics library
+
+%description static -l pl
+Statyczna biblioteka libsynaptics
+
+%prep
+%setup -q
+
+%build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
+%configure
+%{__make}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
+%files
+%defattr(644,root,root,755)
+%doc README
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
+
+%files devel
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
+%{_includedir}/synaptics
+
+%files static
+%defattr(644,root,root,755)
+ %{_libdir}/lib*.a
