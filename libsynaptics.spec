@@ -3,14 +3,16 @@ Summary(pl):	libsynaptics - biblioteka do komunikacji z touchpadami Synaptics
 Name:		libsynaptics
 Version:	0.14.4d
 Release:	1
-License:	LGPL
+License:	GPL
 Group:		Libraries
 Source0:	http://qsynaptics.sourceforge.net/%{name}-%{version}.tar.bz2
 # Source0-md5:	1df76861480200343d7de52237e54249
 URL:		http://qsynaptics.sourceforge.net/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	libstdc++-devel
+BuildRequires:	libtool >= 2:1.5
+BuildRequires:	xorg-proto-xproto-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -25,6 +27,8 @@ Summary:	Header files for the libsynaptics library
 Summary(pl):	Pliki nag³ówkowe biblioteki libsynaptics
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
+Requires:	xorg-proto-xproto-devel
 
 %description devel
 Header files for the libsynaptics library
@@ -57,7 +61,6 @@ Statyczna biblioteka libsynaptics
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -70,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README
+%doc README TODO
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
@@ -81,4 +84,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
- %{_libdir}/lib*.a
+%{_libdir}/lib*.a
