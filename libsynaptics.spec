@@ -1,12 +1,12 @@
 Summary:	libsynaptics - a library for communication with Synaptics touchpad
 Summary(pl):	libsynaptics - biblioteka do komunikacji z touchpadami Synaptics
 Name:		libsynaptics
-Version:	0.14.4d
+Version:	0.14.5a
 Release:	1
 License:	GPL
 Group:		Libraries
-Source0:	http://qsynaptics.sourceforge.net/%{name}-%{version}.tar.bz2
-# Source0-md5:	1df76861480200343d7de52237e54249
+Source0:	http://qsynaptics.sourceforge.net/%{name}-%{version}-debug.tar.bz2
+# Source0-md5:	14b31db8abb917d982a6d7deb400829e
 URL:		http://qsynaptics.sourceforge.net/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
