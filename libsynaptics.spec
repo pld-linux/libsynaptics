@@ -1,5 +1,5 @@
 Summary:	libsynaptics - a library for communication with Synaptics touchpad
-Summary(pl.UTF-8):   libsynaptics - biblioteka do komunikacji z touchpadami Synaptics
+Summary(pl.UTF-8):	libsynaptics - biblioteka do komunikacji z touchpadami Synaptics
 Name:		libsynaptics
 Version:	0.14.6b
 Release:	1
@@ -24,7 +24,7 @@ Synaptics.
 
 %package devel
 Summary:	Header files for the libsynaptics library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki libsynaptics
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libsynaptics
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
@@ -38,7 +38,7 @@ Pliki nagłówkowe biblioteki libsynaptics
 
 %package static
 Summary:	Static libsynaptics library
-Summary(pl.UTF-8):   Statyczna biblioteka libsynaptics
+Summary(pl.UTF-8):	Statyczna biblioteka libsynaptics
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
