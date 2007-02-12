@@ -1,5 +1,5 @@
 Summary:	libsynaptics - a library for communication with Synaptics touchpad
-Summary(pl):	libsynaptics - biblioteka do komunikacji z touchpadami Synaptics
+Summary(pl.UTF-8):   libsynaptics - biblioteka do komunikacji z touchpadami Synaptics
 Name:		libsynaptics
 Version:	0.14.6b
 Release:	1
@@ -18,13 +18,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 libsynaptics is a library for communication with Synaptics touchpads.
 
-%description -l pl
-libsynaptics jest bibliotek± umo¿liwiaj±c± komunikacjê z touchpadami
+%description -l pl.UTF-8
+libsynaptics jest bibliotekÄ… umoÅ¼liwiajÄ…cÄ… komunikacjÄ™ z touchpadami
 Synaptics.
 
 %package devel
 Summary:	Header files for the libsynaptics library
-Summary(pl):	Pliki nag³ówkowe biblioteki libsynaptics
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki libsynaptics
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
@@ -33,19 +33,19 @@ Requires:	xorg-proto-xproto-devel
 %description devel
 Header files for the libsynaptics library
 
-%description devel -l pl
-Pliki nag³ówkowe biblioteki libsynaptics
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki libsynaptics
 
 %package static
 Summary:	Static libsynaptics library
-Summary(pl):	Statyczna biblioteka libsynaptics
+Summary(pl.UTF-8):   Statyczna biblioteka libsynaptics
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libsynaptics library
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka libsynaptics
 
 %prep
