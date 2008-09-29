@@ -1,12 +1,17 @@
+#
+# Conditional build:
+%bcond_without	static_libs # don't build static libraries
+#
 Summary:	libsynaptics - a library for communication with Synaptics touchpad
 Summary(pl.UTF-8):	libsynaptics - biblioteka do komunikacji z touchpadami Synaptics
 Name:		libsynaptics
 Version:	0.14.6c
-Release:	2
+Release:	3
 License:	GPL
 Group:		Libraries
 Source0:	http://qsynaptics.sourceforge.net/%{name}-%{version}.tar.bz2
 # Source0-md5:	fedf8b31171d288954ff2e83b251de44
+Patch0:		%{name}-gcc43.patch
 URL:		http://qsynaptics.sourceforge.net/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
@@ -50,13 +55,15 @@ Statyczna biblioteka libsynaptics
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--enable-static=%{?with_static_libs:yes}%{!?with_static_libs:no}
 %{__make}
 
 %install
@@ -82,6 +89,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.la
 %{_includedir}/synaptics
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%endif
